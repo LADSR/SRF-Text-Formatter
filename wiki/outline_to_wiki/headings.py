@@ -13,6 +13,7 @@ def heading_text():
         if paragraph.style.name.startswith('Heading 2'):
             paragraph.text = '<h3>' + paragraph.text + '</h3>'
             paragraph.style = doc.styles['Normal']
+        if paragraph.text.__len__
 
         if paragraph.style.name.startswith('Heading 3'):
             if paragraph.text.endswith('.'):

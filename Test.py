@@ -48,21 +48,13 @@ for paragraph in paragraphs:
     
     print(aa)
 '''
-aa = 0
 for p in doc.paragraphs:
-    if p.style.name.startswith('Heading 2'):
-        p.text = '*' + p.text
-        aa = aa = 1
+    if p.text.__len__() >= 75:
         print(p.style.name)
         print(p.text)
-        
-    elif p.style.name.startswith('Heading 2') == False and aa < 3:
-        aa = 0
-        print(p.style.name)
-        print(p.text)
-
-
-
+        print(p.text.__len__())
+    elif p.text.__len__() < 75:
+        print('Shorty')
         
 #NO TOUCH
 #Doc file            C:\Users\Cliff\Desktop\test.docx

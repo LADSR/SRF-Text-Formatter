@@ -29,6 +29,7 @@ def main():
     except Exception as e:
         print("An error occurred:", e)
 
+
 main()
 #Doc file            C:\Users\Cliff\Desktop\test.docx
 #My Outline          C:\Users\Cliff\Desktop\May 16th 2024 - Copy.docx
