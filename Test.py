@@ -54,9 +54,24 @@ for paragraph in paragraphs:
 #My Outline          C:\Users\Cliff\Desktop\May 16th 2024 - Copy.docx
 #Michael Outline    C:\Users\Cliff\Desktop\RE-SEED.docx
 
+#account for spaces i.e starts with ' '
+
 a = 0
 for p in doc.paragraphs:
-    if p.part:
+
+    if p.style.name.startswith('Heading 2') and p.text.startswith('<h2>') == False:
         a = a + 1
-        print(a)
+        p.text = 'one' + p.text + 'two'
+
+        if a < 3:
+            p.text = p.text.replace('one', '<h3>')
+            p.text = p.text.replace('two', '</h3>')
+
+        elif a >= 3:
+            p.text = p.text.replace('one', '*<h3>')
+            p.text = p.text.replace('two', '</h3>')
+
+    elif p.style.name.startswith('Heading 2') == False:
+        a = 0
+    print(p.text)
 
