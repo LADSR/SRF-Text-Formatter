@@ -48,15 +48,15 @@ for paragraph in paragraphs:
     
     print(aa)
 '''
-for p in doc.paragraphs:
-    if p.text.__len__() >= 75:
-        print(p.style.name)
-        print(p.text)
-        print(p.text.__len__())
-    elif p.text.__len__() < 75:
-        print('Shorty')
-        
+
 #NO TOUCH
 #Doc file            C:\Users\Cliff\Desktop\test.docx
 #My Outline          C:\Users\Cliff\Desktop\May 16th 2024 - Copy.docx
 #Michael Outline    C:\Users\Cliff\Desktop\RE-SEED.docx
+
+a = 0
+for p in doc.paragraphs:
+    if p.part:
+        a = a + 1
+        print(a)
+

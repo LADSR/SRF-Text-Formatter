@@ -1,0 +1,3 @@
+Notes to Self
+    4. after three items of the same it turn into list outline
+    6. if font is the same for several lines make into list
