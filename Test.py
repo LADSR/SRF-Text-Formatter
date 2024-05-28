@@ -55,7 +55,7 @@ for paragraph in paragraphs:
 #Michael Outline    C:\Users\Cliff\Desktop\RE-SEED.docx
 
 #account for spaces i.e starts with ' '
-
+#WIP NEED TO ACCOUNT FOR FIRST TWO PARA
 a = 0
 for p in doc.paragraphs:
 
@@ -73,5 +73,6 @@ for p in doc.paragraphs:
 
     elif p.style.name.startswith('Heading 2') == False:
         a = 0
+
     print(p.text)
 
