@@ -56,6 +56,8 @@ for paragraph in paragraphs:
 
 #account for spaces i.e starts with ' '
 #WIP NEED TO ACCOUNT FOR FIRST TWO PARA
+#could save a val in var and then go back to refrence it
+'''
 a = 0
 for p in doc.paragraphs:
 
@@ -71,8 +73,10 @@ for p in doc.paragraphs:
             p.text = p.text.replace('one', '*<h3>')
             p.text = p.text.replace('two', '</h3>')
 
+
     elif p.style.name.startswith('Heading 2') == False:
         a = 0
 
     print(p.text)
+'''
 
