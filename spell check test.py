@@ -2,6 +2,7 @@
 from docx import Document
 from autocorrect import Speller
 
+
 # load word document
 doc = Document("Trial.docx")
 

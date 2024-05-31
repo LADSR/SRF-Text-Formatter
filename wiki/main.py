@@ -1,7 +1,7 @@
 from docx import Document
 from docx.shared import Pt
 
-#IT WORKS!!!
+
 print('What format was your document origanally in?')
 form_type = input('type ONE for Word Document or TWO for outline. ')
 
@@ -16,6 +16,10 @@ def wiki_format():
         other_text_styles()
         format_headings_and_lists()
         blank_space()
+        
+        ## FOR Shravanth: Uncomment text below when code is ready
+        ##from spellcheck.spell_check import //Main_function_name_here()//
+        ##//Main_function_name_here()//
 
     elif form_type == 'TWO':
         #imports functions
