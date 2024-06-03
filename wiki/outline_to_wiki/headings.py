@@ -11,9 +11,9 @@ def heading_text():
             paragraph.style = doc.styles['Normal']
 
         if paragraph.style.name.startswith('Heading 2'):
-            paragraph.text = '<h3>' + paragraph.text + '</h3>'
+            from wiki.outline_to_wiki.headings_fun.dynamic_headings import heading_2, a ,b, c
+            heading_2(a, b, c)
             paragraph.style = doc.styles['Normal']
-        #if paragraph.text.__len__
 
         if paragraph.style.name.startswith('Heading 3'):
             if paragraph.text.endswith('.'):

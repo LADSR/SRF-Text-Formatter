@@ -4,7 +4,6 @@ You must have a python interpretaer and python docx to use this application.
 Everything is run from cmd line but later I'll make a html script to make it more user friendly.
 Right Now everything is used from run.py located in the root directory.
 
-
 Dependencies
 You will need python docx to use this script. You can install it like this:
     1. Python docx
