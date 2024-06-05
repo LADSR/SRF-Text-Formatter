@@ -1,3 +1,5 @@
+This is where I leave notes for Myself
+
 Levi's Notes for Levi:
     if p.text has no text remove line at beginning
     Spaces/Indents make text subtext
@@ -8,5 +10,8 @@ Levi's Notes for Levi:
 
     h3 doesn't have bullete sometimes and it looks ugly
     more than one heding 1 should be formatted diffrently (As one para not seprate)
+
+GUI:
+    if they select formatting to first give them a popup telling them to select format from first
 
 
