@@ -20,4 +20,4 @@ def main():
         #NOTE: allow people to customize file name
         #Maybe default could be old file name.
         name = str(fileout.get)
-        doc.save(desktop + name + '.docx')
+        doc.save(desktop + 'wiki_out.docx')
