@@ -13,7 +13,6 @@ def wiki_format():
         other_text_styles()
         format_headings_and_lists()
         blank_space()
-        print
         
         ## FOR Shravanth: Uncomment text below when code is ready
         ##from spellcheck.spell_check import //Main_function_name_here()//
