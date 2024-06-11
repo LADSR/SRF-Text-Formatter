@@ -1,5 +1,5 @@
 '''
-This is the Main GUI Page. This is where the Window gets its formatting from.
+This is the Main GUI Page. This is were the window layout lives.
 '''
 from tkinter import *
 from tkinter import ttk
@@ -8,16 +8,25 @@ from tkinter import ttk
 from GraphicalUserInterface.UploadFile import UploadAction
 from GraphicalUserInterface.FormatTo import form_to_docx, form_to_wiki, form_to_outline
 from GraphicalUserInterface.FormatFrom import form_from_docx, form_from_outline, form_from_wiki
-from run import main
 from GraphicalUserInterface.GraphicsVars import *
+from run import main
+import os
+
+desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+def savedoc():
+    global path
+    print(fileout.get())
+    path = desktop + '\\' + fileout.get() + '.docx'
+    print(path)
+    return path
 
 root = Tk()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 screen_size = str(screen_width) + 'x' + str(screen_height)
+root.geometry(screen_size)
 
 root.title('OnTrackNorthAmerica Document Formater')
-root.geometry(screen_size)
 root.config(background=otnablue, borderwidth=15)
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
@@ -68,14 +77,11 @@ ttk.Label(fileselect, text='Select and Name your File', font = heading_font).gri
 ttk.Label(fileselect, text='Select a File:', font = text_font).grid(column=0, row=1, sticky=W)
 ttk.Button(fileselect, text='File', command=UploadAction).grid(column=0, row=1, sticky= W, padx= 100, pady= 2)
 
-
 fileout = StringVar()
 ttk.Label(fileselect, text='Name your file:', font= text_font).grid(column=0, row=2, sticky=W,  pady= 2)
-fileout_entry = ttk.Entry(fileselect, width= 15, textvariable=fileout).place(rely= 0.30, relx= 0.08, )
+fileout_entry = ttk.Entry(fileselect, width= 15, textvariable=fileout).place(rely= 0.30, relx= 0.08)
 ttk.Label(fileselect, text='.docx', font= text_font).place(rely= 0.30, relx= 0.15)
-
-
-
+ttk.Button(fileselect, text='Save Doc Name', command=savedoc).grid(column= 2, row=2)
 #document type they're formatting to
 ttk.Label(basic, text='Basic Formatting Options', font = heading_font, borderwidth= 3, border= 3).grid(column=0, row=0, sticky=W, pady= 10)
 ttk.Label(basic, text='What format do you want to Convert your document to?', font = text_font, borderwidth= 3, border= 3).grid(column=0, row=2, sticky=W, pady= 10)

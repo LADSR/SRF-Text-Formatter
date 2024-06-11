@@ -1,5 +1,7 @@
 As of the GUI UPDATE everything should be run from Index.py instead!
 
+Hidden folders (folders with a . infront of their names) Should be ignored unless you need an example for correct syntax
+Then you should look in the example code folder.
 Dependencies
 You will need python docx to use this script. You can install it like this:
     1. Python docx

@@ -14,4 +14,3 @@ def UploadAction():
     doc = Document(doc_path)
     print(doc)
     return doc_path, doc, path
-

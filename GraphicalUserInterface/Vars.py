@@ -1,10 +1,10 @@
 #standard/stock variables
-a = bool
-b = bool
-c = bool
-d = bool
-e = bool
-f = bool
+a = bool(False)
+b = bool(False)
+c = bool(False)
+d = bool(False)
+e = bool(False)
+f = bool(False)
 
 #Unused vars
 '''
