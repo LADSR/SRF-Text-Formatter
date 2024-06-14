@@ -21,8 +21,8 @@ def heading_2(a, b, c):
                 
                 #Changes third or more paragraphs into bullets
                 elif a >= 3 and paragraph.style.name.startswith('Heading 2') and paragraph.text.startswith('tOdjewZ7wd'):
-                    paragraph.text = paragraph.text.replace('tOdjewZ7wd ', '*<h3>')
-                    paragraph.text = paragraph.text.replace(' tUDK9aIVL1', '</h3>')
+                    paragraph.text = paragraph.text.replace('tOdjewZ7wd ', '*')
+                    paragraph.text = paragraph.text.replace(' tUDK9aIVL1', '')
 
         #Makes corrections and resets variables whenever heading is no longer heading 2
         elif paragraph.style.name.startswith('Heading 2') == False:

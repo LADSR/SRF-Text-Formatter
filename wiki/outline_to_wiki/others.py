@@ -31,13 +31,6 @@ def strike_text():
                 run.text = '<s>' + run.text + '</s>'
                 run.font.strike = False
 
-def strike_text():
-    for paragraph in doc.paragraphs:
-        for run in paragraph.runs:
-            if run.font.strike:
-                run.text = '<s>' + run.text + '</s>'
-                run.font.strike = False
-
 def sub_text():
     for paragraph in doc.paragraphs:
         for run in paragraph.runs:
@@ -55,21 +48,15 @@ def sup_text():
 def quotes():
     #quote over rides heading styles
     for paragraph in paragraphs:
-        if paragraph.text.__contains__('“') and paragraph.text.__contains__('”'):
+        if paragraph.text.__contains__('“') and paragraph.text.__contains__('”') and paragraph.text.startswith('<') == False:
             #Makes actual quote itallic
             paragraph.text = paragraph.text.replace('“', '<i> “')
             paragraph.text = paragraph.text.replace('”', '”</i>')
-            paragraph.style = doc.styles['Normal']
-        if paragraph.text.__contains__('“') and paragraph.text.__contains__('”') and paragraph.text.endswith('.') == False:
-            #Makes actual quote itallic
-            paragraph.text = paragraph.text.replace('“', '<i> “')
-            paragraph.text = paragraph.text.replace('”', '”</i>')
-            paragraph.text = '<big> <b>' + paragraph.text + '</big> </b>'
             paragraph.style = doc.styles['Normal']
 
 def questions():
     for paragraph in doc.paragraphs:
-        if paragraph.text.endswith('?'):
+        if paragraph.text.__contains__('?'):
             if paragraph.text.startswith('Who'):
                 paragraph.text = '<h2><i><b>' + paragraph.text + '</b></i></h2>'
             if paragraph.text.startswith('What'):

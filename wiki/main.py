@@ -10,8 +10,8 @@ def wiki_format():
         from wiki.doc_to_wiki.breaks import blank_space
         
         #Runs functions
-        other_text_styles()
         format_headings_and_lists()
+        other_text_styles()
         blank_space()
         
         ## FOR Shravanth: Uncomment text below when code is ready
@@ -25,9 +25,10 @@ def wiki_format():
         from wiki.outline_to_wiki.others import other_text_styles
 
         #runs functions
+        format_headings_and_lists()
         other_text_styles()
         fix_breaks()
-        format_headings_and_lists()
+        
     
     elif d == True:
         print('This document is already in wiki format.')

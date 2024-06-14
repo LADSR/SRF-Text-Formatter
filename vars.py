@@ -1,3 +1,3 @@
-from GraphicalUserInterface.UploadFile import doc, doc_path
+from GraphicalUserInterface.UploadFile import doc
 
 paragraphs = doc.paragraphs

@@ -2,57 +2,45 @@ from docx import Document
 from docx.shared import Pt
 
 from vars import doc, paragraphs
-
+from wiki.outline_to_wiki.headings_fun.heading1 import h1
 
 def heading_text():
+    h1()
+    
     for paragraph in paragraphs:
-        if paragraph.style.name.startswith('Heading 1') and paragraph.text.__contains__('“') == False:
-            paragraph.text = '<big><big>' + paragraph.text + '</big></big>'
-            paragraph.style = doc.styles['Normal']
-
         if paragraph.style.name.startswith('Heading 2'):
-            from wiki.outline_to_wiki.headings_fun.dynamic_headings import heading_2, a ,b, c
-            heading_2(a, b, c)
-            paragraph.style = doc.styles['Normal']
+            if paragraph.text.__contains__('?'):
+                paragraph.text = '<h2>' + paragraph.text + '</h2>'
+                paragraph.style = doc.styles['Normal']
+            else:
+                paragraph.text = '*' + paragraph.text
 
         if paragraph.style.name.startswith('Heading 3'):
-            if paragraph.text.endswith('.'):
-                paragraph.text = paragraph.text
-                paragraph.style = doc.styles['Normal']
-            else:
-                paragraph.text = '*<b><i>'  + paragraph.text + '</i></b>'
-                paragraph.style = doc.styles['Normal']
+            paragraph.text = ':*'  + paragraph.text
+            paragraph.style = doc.styles['Normal']
 
         if paragraph.style.name.startswith('Heading 4'):
-            if paragraph.text.endswith('.'):
-                paragraph.text = paragraph.text
-                paragraph.style = doc.styles['Normal']
-            else:
-                paragraph.text = '**' + paragraph.text
-                paragraph.style = doc.styles['Normal']
+            paragraph.text = '::*' + paragraph.text
+            paragraph.style = doc.styles['Normal']
 
         if paragraph.style.name.startswith('Heading 5'):
-            if paragraph.text.endswith('.'):
-                paragraph.text = paragraph.text
-                paragraph.style = doc.styles['Normal']
-            else:
-                paragraph.text = '***' + paragraph.text
-                paragraph.style = doc.styles['Normal']
+            paragraph.text = ':::*' + paragraph.text
+            paragraph.style = doc.styles['Normal']
 #could make it indent
         if paragraph.style.name.startswith('Heading 6'):
-            paragraph.text = paragraph.text
+            paragraph.text = '::::*' + paragraph.text
             paragraph.style = doc.styles['Normal']
 
         if paragraph.style.name.startswith('Heading 7'):
-            paragraph.text = paragraph.text
+            paragraph.text = ':::::*' + paragraph.text
             paragraph.style = doc.styles['Normal']
         
         if paragraph.style.name.startswith('Heading 8'):
-            paragraph.text = paragraph.text
+            paragraph.text = '::::::*' + paragraph.text
             paragraph.style = doc.styles['Normal']
         
         if paragraph.style.name.startswith('Heading 9'):
-            paragraph.text = paragraph.text
+            paragraph.text = ':::::::*' + paragraph.text
             paragraph.style = doc.styles['Normal']
 
 def title_text():

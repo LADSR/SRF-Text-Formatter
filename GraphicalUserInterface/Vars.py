@@ -8,7 +8,7 @@ f = bool(False)
 
 #Unused vars
 '''
-g = 
+g = bool(False)
 h =
 i =
 j =
