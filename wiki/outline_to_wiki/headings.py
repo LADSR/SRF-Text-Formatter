@@ -3,18 +3,19 @@ from docx.shared import Pt
 
 from vars import doc, paragraphs
 from wiki.outline_to_wiki.headings_fun.heading1 import h1
-
+from wiki.outline_to_wiki.headings_fun.heading2 import h2, a, b
 def heading_text():
     h1()
-    
+    h2(a,b)
     for paragraph in paragraphs:
+        '''
         if paragraph.style.name.startswith('Heading 2'):
             if paragraph.text.__contains__('?'):
                 paragraph.text = '<h2>' + paragraph.text + '</h2>'
                 paragraph.style = doc.styles['Normal']
             else:
                 paragraph.text = '*' + paragraph.text
-
+        '''
         if paragraph.style.name.startswith('Heading 3'):
             paragraph.text = ':*'  + paragraph.text
             paragraph.style = doc.styles['Normal']

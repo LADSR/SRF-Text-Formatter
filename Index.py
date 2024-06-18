@@ -13,12 +13,12 @@ from GraphicalUserInterface.UploadFile import UploadAction
 
 from GraphicalUserInterface.FormatTo import form_to_docx, form_to_wiki, form_to_outline
 from GraphicalUserInterface.FormatFrom import form_from_docx, form_from_outline, form_from_wiki
-
 from GraphicalUserInterface.GraphicsVars import *
 from run import main
 
-import os
-desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+'''
+Functions
+'''
 
 ###############################################################################
 '''
@@ -91,12 +91,9 @@ layout = [
     #Make all headings into Decimals
     #Make all headings into norm text
     #make all headings into Headings
-    #Jeff formatting
-
-    
+    #Jeff formatting  
 ]
 
 #layout features that can't be containes in an array
-form1 = ttk.Button(format, text='Format', command=main).grid(column=0, row=0)
-
+form1 = ttk.Button(format, text='Save File', command=main).grid(column=0, row=0)
 root.mainloop()

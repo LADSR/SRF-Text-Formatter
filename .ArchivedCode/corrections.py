@@ -1,9 +1,7 @@
 from docx import Document
 from docx.shared import Pt
 from vars import doc, paragraphs
-a = 0
-b = str()
-c = str()
+
 #Correction one runs if two former paragraphs need to formated into bullet points
 def h2_correction_one():
     for paragraph in doc.paragraphs:

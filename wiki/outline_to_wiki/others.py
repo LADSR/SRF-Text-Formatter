@@ -56,7 +56,7 @@ def quotes():
 
 def questions():
     for paragraph in doc.paragraphs:
-        if paragraph.text.__contains__('?'):
+        if paragraph.text.__contains__('?') and paragraph.style.name.startswith('Heading 2') == False:
             if paragraph.text.startswith('Who'):
                 paragraph.text = '<h2><i><b>' + paragraph.text + '</b></i></h2>'
             if paragraph.text.startswith('What'):

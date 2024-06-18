@@ -8,4 +8,4 @@ def main():
     if a == True:
         from wiki.main import wiki_format
         wiki_format()
-        doc.save(desktop + '\\'+ 'wiki.docx')
+        doc.save(desktop + '\\' + 'wiki.docx')
