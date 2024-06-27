@@ -21,7 +21,7 @@ def underline_text():
     for paragraph in doc.paragraphs:
         for run in paragraph.runs:
             if run.underline:
-                run.text = '<i>' + run.text + '</i>'
+                run.text = '<u>' + run.text + '</u>'
                 run.underline = False
 
 def strike_text():
@@ -56,7 +56,7 @@ def quotes():
 
 def questions():
     for paragraph in doc.paragraphs:
-        if paragraph.text.__contains__('?') and paragraph.style.name.startswith('Heading 2') == False:
+        if paragraph.text.__contains__('?') and paragraph.style.name.startswith('Heading 2') == False and paragraph.text.startswith(':') == False and paragraph.text.startswith('*') == False:
             if paragraph.text.startswith('Who'):
                 paragraph.text = '<h2><i><b>' + paragraph.text + '</b></i></h2>'
             if paragraph.text.startswith('What'):
@@ -84,4 +84,4 @@ def other_text_styles():
     sup_text()
     sub_text()
     quotes()
-    questions()
+    #questions()

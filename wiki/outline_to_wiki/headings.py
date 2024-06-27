@@ -4,22 +4,10 @@ from docx.shared import Pt
 from vars import doc, paragraphs
 from wiki.outline_to_wiki.headings_fun.heading1 import h1
 from wiki.outline_to_wiki.headings_fun.heading2 import h2, a, b
-def heading_text():
-    h1()
-    h2(a,b)
-    for paragraph in paragraphs:
-        '''
-        if paragraph.style.name.startswith('Heading 2'):
-            if paragraph.text.__contains__('?'):
-                paragraph.text = '<h2>' + paragraph.text + '</h2>'
-                paragraph.style = doc.styles['Normal']
-            else:
-                paragraph.text = '*' + paragraph.text
-        '''
-        if paragraph.style.name.startswith('Heading 3'):
-            paragraph.text = ':*'  + paragraph.text
-            paragraph.style = doc.styles['Normal']
+from wiki.outline_to_wiki.headings_fun.heading3 import h3, c, d
 
+def heading_text():
+    for paragraph in paragraphs:
         if paragraph.style.name.startswith('Heading 4'):
             paragraph.text = '::*' + paragraph.text
             paragraph.style = doc.styles['Normal']
@@ -27,7 +15,7 @@ def heading_text():
         if paragraph.style.name.startswith('Heading 5'):
             paragraph.text = ':::*' + paragraph.text
             paragraph.style = doc.styles['Normal']
-#could make it indent
+
         if paragraph.style.name.startswith('Heading 6'):
             paragraph.text = '::::*' + paragraph.text
             paragraph.style = doc.styles['Normal']
@@ -54,11 +42,9 @@ def title_text():
             paragraph.text = '<center>' + paragraph.text + '</center>'
             paragraph.style = doc.styles['Normal']
 
-        if paragraph.style.name.startswith('TOC'):
-           paragraph.add_run('__TOC__')
-           paragraph.style = doc.styles['Normal']
-           print('Please delte the Table of Contents before copy and pasting into the wiki!')
-
 def format_headings_and_lists():
+    h1()
+    h3(c,d)
     heading_text()
     title_text()
+    h2(a,b)

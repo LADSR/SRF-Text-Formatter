@@ -88,10 +88,6 @@ layout = [
     ttk.Button(basic, text='Word', command=form_from_docx).grid(column=0, row=5, sticky=E),
 
     ttk.Label(advanced, text= 'Advanced Formatting Options', border= 3).grid(column=0, row=0, sticky=W),
-    #Make all headings into Decimals
-    #Make all headings into norm text
-    #make all headings into Headings
-    #Jeff formatting  
 ]
 
 #layout features that can't be containes in an array
