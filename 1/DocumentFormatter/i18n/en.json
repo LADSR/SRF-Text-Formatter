@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Levi Daniels"
+		]
+	},
+
+	"documentformatter": "Document Formatter",
+    "documentformatter-desc": "This is a script that automatically formats word documents into wiki syntax and saves them in the wiki."
+}

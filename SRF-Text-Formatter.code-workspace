@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"svg.preview.background": "dark-transparent",
+		"php.version": "8.3"
+	}
+}

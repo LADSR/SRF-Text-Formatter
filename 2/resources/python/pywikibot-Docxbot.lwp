@@ -1,0 +1,6 @@
+#LWP-Cookies-2.0
+Set-Cookie3: UseDC=master; path="/"; domain="wiki.ontracknorthamerica.org"; path_spec; secure; expires="2024-08-05 15:43:33Z"; HttpOnly=None; version=0
+Set-Cookie3: mediawiki_cToken=8067bf686da6d4de270758730ceac225; path="/"; domain="wiki.ontracknorthamerica.org"; path_spec; secure; expires="2025-02-01 15:43:23Z"; HttpOnly=None; version=0
+Set-Cookie3: mediawiki_cUserID=18; path="/"; domain="wiki.ontracknorthamerica.org"; path_spec; secure; expires="2025-02-01 15:43:23Z"; HttpOnly=None; version=0
+Set-Cookie3: mediawiki_cUserName=Docxbot; path="/"; domain="wiki.ontracknorthamerica.org"; path_spec; secure; expires="2025-02-01 15:43:23Z"; HttpOnly=None; version=0
+Set-Cookie3: mediawiki_c_session=da24l1tso1n0ms6o7mdhpnhriogrpo91; path="/"; domain="wiki.ontracknorthamerica.org"; path_spec; secure; discard; HttpOnly=None; version=0
