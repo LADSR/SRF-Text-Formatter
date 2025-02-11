@@ -1,0 +1,10 @@
+#LWP-Cookies-2.0
+Set-Cookie3: mw_c_2Token=8067bf686da6d4de270758730ceac225; path="/"; domain="hungry-franklin.74-208-238-145.plesk.page"; path_spec; secure; expires="2025-03-25 16:26:43Z"; HttpOnly=None; version=0
+Set-Cookie3: mw_c_2UserID=18; path="/"; domain="hungry-franklin.74-208-238-145.plesk.page"; path_spec; secure; expires="2025-03-25 16:26:43Z"; HttpOnly=None; version=0
+Set-Cookie3: mw_c_2UserName=Docxbot; path="/"; domain="hungry-franklin.74-208-238-145.plesk.page"; path_spec; secure; expires="2025-03-25 16:26:43Z"; HttpOnly=None; version=0
+Set-Cookie3: mw_c_2_session=804hi50aa9gnl31ug3clcskpe38mo0sq; path="/"; domain="hungry-franklin.74-208-238-145.plesk.page"; path_spec; secure; discard; HttpOnly=None; version=0
+Set-Cookie3: UseDC=master; path="/"; domain="wiki.ontracknorthamerica.org"; path_spec; secure; expires="2024-10-15 17:35:37Z"; HttpOnly=None; version=0
+Set-Cookie3: mediawiki_cToken=8067bf686da6d4de270758730ceac225; path="/"; domain="wiki.ontracknorthamerica.org"; path_spec; secure; expires="2025-04-13 17:35:27Z"; HttpOnly=None; version=0
+Set-Cookie3: mediawiki_cUserID=18; path="/"; domain="wiki.ontracknorthamerica.org"; path_spec; secure; expires="2025-04-13 17:35:27Z"; HttpOnly=None; version=0
+Set-Cookie3: mediawiki_cUserName=Docxbot; path="/"; domain="wiki.ontracknorthamerica.org"; path_spec; secure; expires="2025-04-13 17:35:27Z"; HttpOnly=None; version=0
+Set-Cookie3: mediawiki_c_session=4fgq1vtuvbhg71jj9ecb07v2cnuucqd6; path="/"; domain="wiki.ontracknorthamerica.org"; path_spec; secure; discard; HttpOnly=None; version=0

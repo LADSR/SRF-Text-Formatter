@@ -1,26 +1,11 @@
 from variables import doc
 
 def bold_text():
-    a = 0
     for paragraph in doc.paragraphs:
         for run in paragraph.runs:
             if run.bold:
-                if a == 0:
-                    a = a + 1
-                    txt = run.text
-                    run.text = ''
-                
-                elif a >= 1:
-                    a = a + 1
-                    txt = txt + run.text
-                    run.text = ''
-
-            elif run.bold == False:
-                    for paragraph in doc.paragraphs:
-                        if paragraph.text.__contains__(txt):
-                            nurun = '<b>' + txt + '</b>'
-                            paragraph.text.replace(txt, nurun)
-                            a = 0
+                run.text = '<b>' + run.text + '</b>'
+                run.bold = False
 
 def italics_text():
     for paragraph in doc.paragraphs:
@@ -33,8 +18,15 @@ def underline_text():
     for paragraph in doc.paragraphs:
         for run in paragraph.runs:
             if run.underline:
-                run.text = '<u>' + run.text + '</u>'
+                run.text = '<i>' + run.text + '</i>'
                 run.underline = False
+
+def strike_text():
+    for paragraph in doc.paragraphs:
+        for run in paragraph.runs:
+            if run.font.strike:
+                run.text = '<s>' + run.text + '</s>'
+                run.font.strike = False
 
 def strike_text():
     for paragraph in doc.paragraphs:

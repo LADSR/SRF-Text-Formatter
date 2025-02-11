@@ -1,0 +1,37 @@
+{
+	"name": "DocumentFormatter",
+	"version": "1.2.0",
+	"author": [
+		"Levi Daniels"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:DocumentFormatter",
+	"descriptionmsg": "documentformatter-desc",
+	"license-name": "MIT",
+	"type": "other",
+
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\DocumentFormatter\\": "resorces/"
+	},
+	"AutoloadClasses": {
+		"SpecialDocumentFormatter": "DocumentFormatter_body.php"
+	},
+    "SpecialPages":{
+        "DocumentFormatter": "SpecialDocumentFormatter"
+    },
+	"MessagesDirs": {
+		"DocumentFormatter": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"DocumentFormatterAlias": "DocumentFormatter.alias.php"
+	},
+
+	"manifest_version": 2,
+	"requires": {
+		"MediaWiki": ">= 1.40.0",
+		"platform": {
+			"php": ">= 5.6"
+		}
+	}
+}
