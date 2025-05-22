@@ -1,89 +1,106 @@
 <?php
-/**
- * Necessary description of @file, @authors and license
- * @FILLME!
- * Always good to remind that important part
- */
- 
-if ( !defined( 'MEDIAWIKI' ) ) { 
-	die( -1 ); 
+if ( !defined( 'MEDIAWIKI' ) ) {
+    die( -1 );
 }
 
+namespace MediaWiki\Extension\DocumentFormatter;
+
+use SpecialPage;
+use HtmlForm\FormFactory;
+use HtmlForm\SpecialFormContext;
 
 class SpecialDocumentFormatter extends \SpecialPage {
     public function __construct() {
         parent::__construct( 'documentformatter' );
-        $this->mListed = true;
+        $this->mListed     = true;
         $this->mIncludable = false;
     }
-    /**
-     * Special page entry point
-     * @param string|null $par
-     */
 
-    public function execute( $par ){
-		$out = $this->getOutput();
+    public function execute( $par ) {
+        $out = $this->getOutput();
         $this->setHeaders();
-        //Page Layout
         $out->setPageTitle( 'Document Formatter' );
+
+        // 1) Define your form fields
         $formDescriptor = [
             'page' => [
-                //'cssclass' => ''
-                'label' => 'Select a Page',
-                'type' => 'title',
-                'id' => 'page',
-                'required' => true
+                'label'    => 'Select a Page',
+                'type'     => 'title',
+                'id'       => 'page',
+                'required' => true,
             ],
 
             'file' => [
-                //'cssclass' => ''
-                'label' => 'Paste the name of your word document',
-                'type' => 'text',
-                'id' => 'file'
+                'label'       => 'Upload your source document',
+                'type'        => 'file',
+                'id'          => 'file',
+                'help'        => 'Choose a .docx or .txt file to format',
+                'required'    => false,
             ],
 
             'filetype' => [
-                'label' => 'What format was your file originally in?',
-                'type' => 'radio',
-                'options' => [
-                    'Word' => 0,
-                    'Outline' => 1
+                'label'    => 'What format was your file originally in?',
+                'type'     => 'radio',
+                'options'  => [
+                    'Word'    => 0,
+                    'Outline' => 1,
                 ],
-                'id' => 'type',
-                'required' => true
-            ]
+                'id'       => 'type',
+                'required' => true,
+            ],
         ];
-        #$this->getOutput()->addHTML( '<big>Instructions</big><\br>Step 1: Create or Choose a Page</br> Step 2: Upload your file to the wiki</br> Step 3: Fill out Short form on special Page and Submit' );
-        
-        $htmlForm = HTMLForm::factory( 'table', $formDescriptor, $this->getContext() );
-        $htmlForm->setSubmitText( 'Save' );
-        $htmlForm->setSubmitCallback( [ $this, 'processInput' ] );  
+
+        // 2) Build the HtmlForm
+        $htmlForm = FormFactory::getForm(
+            'documentformatter-form',  // unique form ID
+            $formDescriptor,           // your fields
+            $this,                     // handler object
+            'processInput'             // callback method
+        );
+
+        // 3) Enable file uploads
+        $htmlForm->setMethod( 'post' );
+        $htmlForm->setEnctype( 'multipart/form-data' );
+
+        // 4) Customize and show
+        $htmlForm->setSubmitText( 'Run Formatter' );
         $htmlForm->show();
-        $htmlForm->setFormIdentifier( 'form' );
+
+        // Stop further output
+        return;
     }
-    
-    ///Logic
-    public static function processInput( $formData ) {
-        $dir = __DIR__;
-        $IP = str_ireplace("/extensions/DocumentFormatter", "", $dir);
-        #Select from list of pages / create a page
-        $page = $formData['page'];
-        if (str_contains($page, " ")) {
-            $page = str_ireplace(" ", "_", $page);
+
+    public static function processInput( SpecialFormContext $context ) {
+        $request  = $context->getRequest();
+        $formData = $request->getValues();
+
+        // Handle upload (if provided)
+        $upload = $request->getUpload( 'file' );
+        if ( $upload && $upload->isOk() ) {
+            $IP      = str_ireplace( '/extensions/DocumentFormatter', '', __DIR__ );
+            $dest    = "$IP/images/" . $upload->getLocalName();
+            $upload->moveTo( $dest );
+            $filedir = $dest;
+        } else {
+            // Fallback: find by name
+            $filedir = exec( "find $IP/images -name '{$formData['file']}'" );
         }
 
-        $file = $formData['file'];
-        if (str_contains($file, " ")){
-            $file = str_ireplace(" ", "_", $file);
-        }
+        // Your existing logic to call the Python script
+        $dir     = __DIR__;
+        $page    = str_replace( ' ', '_', $formData['page'] );
+        $type    = $formData['filetype'];
+        $command = "cd $dir/resources/python && pwb login && python3 variables.py "
+                 . escapeshellarg( $dir ) . ' '
+                 . escapeshellarg( $page ) . ' '
+                 . escapeshellarg( $filedir ) . ' '
+                 . escapeshellarg( $type );
+        $output  = shell_exec( $command );
 
-        $filedir = exec("find $IP/images -name '$file'");
-        $filetype = $formData['filetype'];
-
-        $command = "cd $dir/resources/python && pwb login && python3 variables.py $dir $page $filedir $filetype";
-        $output = shell_exec($command);
-        var_dump($output);
-        #exec($command . " 2>&1 &", $output);
+        // Display the result back to the user
+        $context->getOutput()->addWikiTextAsContent(
+            "=== Formatter Result ===\n<pre>" . htmlspecialchars( $output ) . "</pre>"
+        );
     }
 
     protected function getGroupName() {
