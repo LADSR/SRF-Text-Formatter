@@ -10,7 +10,7 @@
 	"type": "other",
 
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\DocumentFormatter\\": "resorces/"
+		"MediaWiki\\Extension\\DocumentFormatter\\": "resources/"
 	},
 	"AutoloadClasses": {
 		"SpecialDocumentFormatter": "DocumentFormatter_body.php"
